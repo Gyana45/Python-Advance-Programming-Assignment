@@ -1,34 +1,22 @@
-def check_score(l):
-    new_list=[]
+'''
+Write a function that takes a positive integer num and calculates how many
+dots exist in a pentagonal shape around the center dot on the Nth iteration.
+In the image below you can see the first iteration is only a single dot. On the
+second, there are 6 dots. On the third, there are 16 dots, and on the fourth
+there are 31 dots.
 
-    def expand_list(l):
-        for i in l:
-            if type(i)==list:
-                expand_list(i)
-            else:
-                new_list.append(i)
+ex:pentagonal(3)=16
+'''
+#formala=(5n^2-5n+2)//2
 
-    expand_list(l)
-    #print(new_list)
-    symbol={'#':5,'O':3,'X':1,'!':-1,'!!':-3,'!!!':-5}
-    sum=0
-    for i in new_list:
-        if i in symbol:
-            sum+=symbol[i]
+def pentagonal():
+    try:
+        n=int(input('Enter the Centered pentagonal number:'))
+        result=(5 * n * n - 5 * n + 2) // 2
+        print( str(n) +'th Centered pentagonal number: ' + str(result))
 
-    if sum<0:
-        return 0
-    else:
-        return sum           
+    except Exception as e:
+        print('Enter a valid integer')
 
 
-print(check_score([
-    ['#','!'],
-    ['!!','X','x']
-]))
-
-print(check_score([
-    ['!!!','O','!'],
-    ['X','#','!!!'],
-    ['!!','X','O']
-]))
+pentagonal()

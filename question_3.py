@@ -1,26 +1,31 @@
-'''Create a function that takes a string as an argument and returns the Morse code equivalent.'''
+'''Given the month and year as numbers, return whether that month contains a Friday 13th.(i.e You can check Python's datetime module)
+
+Examples
+
+has_friday_13(3, 2020) ➞ True
+
+has_friday_13(10, 2017) ➞ True
+
+has_friday_13(1, 1985) ➞ False
+
+'''
+
+from datetime import datetime
+import calendar
+
+def has_friday_13(month,year):
+    date=str(13)+str(month)+str(year)
+    day=datetime.strptime(date,'%d%m%Y').weekday()
+    #print(calendar.day_name[day])
+    if calendar.day_name[day].lower()=='friday':
+        print(True)
+    else:
+        print(False)    
 
 
-def encode_morse(s):
-    s=s.upper()
+has_friday_13(3, 2020) 
 
-    char_to_dots = {
-    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
-    'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
-    'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
-    'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
-    'Y': '-.--', 'Z': '--..', ' ': ' ', '0': '-----',
-    '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
-    '6': '-....', '7': '--...', '8': '---..', '9': '----.',
-    '&': '.-...', "'": '.----.', '@': '.--.-.', ')': '-.--.-', '(': '-.--.',
-    ':': '---...', ',': '--..--', '=': '-...-', '!': '-.-.--', '.': '.-.-.-',
-    '-': '-....-', '+': '.-.-.', '"': '.-..-.', '?': '..--..', '/': '-..-.'
-    }
-    new_string=''
-    for i in list(s):
-        if i in char_to_dots:
-            new_string+=char_to_dots[i]
-    print(new_string)
+has_friday_13(10, 2017)
 
-
-encode_morse("HELP ME !") 
+has_friday_13(1, 1985) 
+   
