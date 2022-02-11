@@ -1,36 +1,26 @@
-'''Create a function that converts a word to a bitstring and then to a boolean list based on the following criteria:
+'''Given a list of words in the singular form, return a set of those words in the plural form if they appear more than once in the list.
 
-    1. Locate the position of the letter in the English alphabet (from 1 to 26).
-    2. Odd positions will be represented as 1 and 0 otherwise.
-    3. Convert the represented positions to boolean values, 1 for True and 0 for False.
-    4. Store the conversions into an array.
+Examples
 
-    Examples
+pluralize(["cow", "pig", "cow", "cow"]) ➞ { "cows", "pig" }
 
-to_boolean_list("deep") ➞ [False, True, True, False]
-# deep converts to 0110
-# d is the 4th alphabet - 0
-# e is the 5th alphabet - 1
-# e is the 5th alphabet - 1
-# p is the 16th alphabet - 0
+pluralize(["table", "table", "table"]) ➞ { "tables" }
+pluralize(["chair", "pencil", "arm"]) ➞ { "chair", "pencil", "arm" }
 
-to_boolean_list("loves") ➞ [False, True, False, True, True]
-
-to_boolean_list("tesh") ➞ [False, True, True, False]
 
 '''
+def pluralize(l):
+    l_new=[]
+    for i in l:
+        if l.count(i)>1:
+            i=i+'s'
+            if i not in l_new:
+                l_new.append(i)
+        else: 
+            l_new.append(i)   
 
-def to_boolean_list(s):
-    s=s.lower()
-    l=[]
-    for i in s:
-        no=ord(i)-96
-        if no%2==0:
-            l.append(False)
-        else:
-            l.append(True)    
+    print(set(l_new)  )
 
-    print(l) 
-   
-
-to_boolean_list('tesh')
+pluralize(["cow", "pig", "cow", "cow"])  
+pluralize(["table", "table", "table"])  
+pluralize(["chair", "pencil", "arm"]) 
