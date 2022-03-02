@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c28e61fc-bf25-45dd-afb9-312d7f558c49" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DataBase/MongoDBTask/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/MongoDBTask/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="c28e61fc-bf25-45dd-afb9-312d7f558c49" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
