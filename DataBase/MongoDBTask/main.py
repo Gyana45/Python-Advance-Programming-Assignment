@@ -17,7 +17,6 @@ code evaluation
 
 
 """
-"""checking git"""
 
 from myMongo import mongo_operation
 
@@ -42,7 +41,7 @@ rec = {'Chiral indice n': 5,
        "Calculated atomic coordinates v'": '0,880125',
        "Calculated atomic coordinates w'": '0,630465'}
 
-conn.insert_record(rec)
+# conn.insert_record(rec)
 
 """Inserting many records"""
 
@@ -65,7 +64,7 @@ rec_list = [
      "Calculated atomic coordinates w'": '0,089298'}
 ]
 
-conn.insert_record(rec_list)
+# conn.insert_record(rec_list)
 
 """insert records from csv file"""
 filename = "carbon_nanotubes.csv"
@@ -73,37 +72,37 @@ filename = "carbon_nanotubes.csv"
 
 """find_one_record"""
 query = {"Calculated atomic coordinates w'" : {"$in" : ['0,089298','0,050998']}}
-print(conn.find_one_record(query))
+#print(conn.find_one_record(query))
 
 """no query"""
-print(conn.find_one_record())
+#print(conn.find_one_record())
 
 """all records"""
-print(len(conn.find_all_record()))
+#print(len(conn.find_all_record()))
 
 query={"Calculated atomic coordinates v'": '0,274086'}
-print(conn.find_all_record(query))
+#print(conn.find_all_record(query))
 
-conn.find_all_record([1,2,3,4])
+#conn.find_all_record([1,2,3,4])
 
 """Limit"""
-print(len(conn.find_limit_record()))
+#print(len(conn.find_limit_record()))
 
-print(len(conn.find_limit_record(3)))
+#print(len(conn.find_limit_record(3)))
 
-print(conn.find_limit_record('ccc'))
+#print(conn.find_limit_record('ccc'))
 
 """update"""
 present_data={'Chiral indice n':5,'Chiral indice m':4}
 new_data={'Initial atomic coordinate u': 'xxxx','Initial atomic coordinate v': 'yyyy'}
-conn.update_record_with_args(1,present_data,new_data)
+#conn.update_record_with_args(1,present_data,new_data)
 
-conn.update_record_with_args(present_data,new_data)
+#conn.update_record_with_args(present_data,new_data)
 
-conn.update_record_with_args('mno',present_data,new_data)
+#conn.update_record_with_args('mno',present_data,new_data)
 
 """Delete"""
 #query={'Chiral indice m': 4,'Initial atomic coordinate u': '0,704904'}
 #query={'Chiral indice m': 4,'Initial atomic coordinate u': '0,129304'}
 query={'Chiral indice m': '1','Initial atomic coordinate u': '0,717298'}
-conn.delete_one_record(query)
+#conn.delete_one_record(query)
