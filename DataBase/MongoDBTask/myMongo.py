@@ -3,6 +3,7 @@ import csv
 import pandas as pd
 from mycustomlogger import customlogger  # customlogger is the class name
 
+#git test from github browser
 
 class mongo_operation:
     log = customlogger.mylog("MongoTask.log")
