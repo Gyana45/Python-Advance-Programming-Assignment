@@ -3,7 +3,8 @@ import csv
 import pandas as pd
 from mycustomlogger import customlogger  # customlogger is the class name
 
-#git test from github browser
+
+# git test from github browser
 
 class mongo_operation:
     log = customlogger.mylog("MongoTask.log")
@@ -194,12 +195,12 @@ class mongo_operation:
     def delete_one_record(self, query):
         """This will delete one record based on the query"""
         try:
-            if isinstance(query,dict):
-                total_rec=len([i for i in self.col.find()])
-                count=len([i for i in self.col.find(query)])
+            if isinstance(query, dict):
+                total_rec = len([i for i in self.col.find()])
+                count = len([i for i in self.col.find(query)])
                 if count >= 1:
                     self.col.delete_one(query)
-                    self.log.info("One record deleted.Available Records: "+str(total_rec-1))
+                    self.log.info("One record deleted.Available Records: " + str(total_rec - 1))
                 else:
                     self.log.info("No Record is there to be deleted")
             else:
@@ -211,12 +212,12 @@ class mongo_operation:
     def delete_many_records(self, query):
         """This will delete all records based on the query"""
         try:
-            if isinstance(query,dict):
-                total_rec=len([i for i in self.col.find()])
-                count=len([i for i in self.col.find(query)])
+            if isinstance(query, dict):
+                total_rec = len([i for i in self.col.find()])
+                count = len([i for i in self.col.find(query)])
                 if count >= 1:
                     self.col.delete_many(query)
-                    self.log.info(str(count)+" records deleted.Available Records: "+str(total_rec-count))
+                    self.log.info(str(count) + " records deleted.Available Records: " + str(total_rec - count))
                 else:
                     self.log.info("No Record is there to be deleted")
             else:
